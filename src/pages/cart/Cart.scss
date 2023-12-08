@@ -1,0 +1,29 @@
+.empty-cart {
+    height: 48vh;
+}
+
+.image-wrapper {
+    display    : flex;
+    align-items: center;
+
+    .media {
+        max-width: 112px;
+    }
+}
+
+.link-shopping {
+    color    : black;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .image-wrapper {
+        display       : flex;
+        align-items   : center;
+        // width      : 160px;
+
+        .media {
+            max-width: 64px;
+        }
+    }
+}

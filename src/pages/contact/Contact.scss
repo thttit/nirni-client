@@ -1,0 +1,18 @@
+.contact_wrapper {
+    display       : flex;
+    flex-direction: column;
+    text-align    : center;
+    height        : 64vh;
+}
+
+@media (max-width: 426px) {
+    .contact_wrapper {
+        .contact_info {
+            font-size: x-small;
+        }
+
+        .contact_text {
+            font-size: x-small;
+        }
+    }
+}
