@@ -1,5 +1,5 @@
 import "./ProductDetail.scss";
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import { UseProductDetail } from "../../components/shop/UseProductDetail";
 import {
   Box,
@@ -208,7 +208,11 @@ const ProductDetail = ({ addToCart }: any) => {
                 </Box>
               ) : (
                 <Grid container spacing={0} className="grid product-single">
-                  <Grid xs={6} className="media product-single_media-group">
+                  <Grid
+                    xs={6}
+                    className="media product-single_media-group"
+                    p={0}
+                  >
                     <Box className="desk">
                       {image.length &&
                         image.map((event: any) => (

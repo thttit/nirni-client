@@ -26,7 +26,12 @@ const CustomCart = ({
     <React.Fragment>
       {fullScreen ? (
         <>
-          <TableCell component="th" scope="row" className="image-wrapper">
+          <TableCell
+            component="th"
+            scope="row"
+            className="image-wrapper"
+            sx={{ display: "flex" }}
+          >
             <LazyLoadImage
               role="presentation"
               alt={name}
