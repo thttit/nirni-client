@@ -27,7 +27,9 @@ import { storeUser } from "./User";
 import GoogleLogin from "./GoogleLogin";
 
 export const loader = async () => {
-  const res = await axios.get(`http://localhost:1337/api/auth/local`);
+  const res = await axios.get(
+    `https://nirni-store.onrender.com/api/auth/local`
+  );
   return res;
 };
 export interface IsVisible {
@@ -65,7 +67,7 @@ const Login = () => {
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
-    const url = `http://localhost:1337/api/auth/local`;
+    const url = `https://nirni-store.onrender.com/api/auth/local`;
     try {
       if (signinData.identifier && signinData.password) {
         const { data } = await axios.post(url, signinData);

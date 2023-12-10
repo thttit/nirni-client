@@ -1,0 +1,10 @@
+.collection {
+    overflow: hidden;
+    margin  : 16px;
+
+    .collection_media {
+        object-fit: cover;
+        width     : 100%;
+        height    : auto;
+    }
+}

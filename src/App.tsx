@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Skeleton } from "@mui/material";
 import Temp from "./routes";
+import dotenv from "dotenv";
 
 function App() {
   const { Router } = Temp();

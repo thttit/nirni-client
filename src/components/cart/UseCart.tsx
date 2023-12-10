@@ -37,20 +37,25 @@ type attributes = {
   };
 };
 const UseCart = (token: any) => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
   const [cart, setCart] = useState<CartItem[]>([]);
   const [updateCart, setUpdateCart] = useState(false);
   const { search } = window.location;
+  console.log(backendUrl);
 
   useEffect(() => {
     if (!!token) {
       if (getQuery("success", search) === "true") {
         const deleteCart = async () => {
           try {
-            await axios.delete(`http://localhost:1337/api/carts/fakeId`, {
-              headers: {
-                Authorization: `bearer ${token}`,
-              },
-            });
+            await axios.delete(
+              `https://nirni-store.onrender.com/api/carts/fakeId`,
+              {
+                headers: {
+                  Authorization: `bearer ${token}`,
+                },
+              }
+            );
             toast.success(
               "Order placed! You will receive an email confirmation.",
               {
@@ -85,7 +90,7 @@ const UseCart = (token: any) => {
       try {
         const {
           data: { data },
-        } = await axios.get(`http://localhost:1337/api/carts`, {
+        } = await axios.get(`https://nirni-store.onrender.com/api/carts`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -126,7 +131,7 @@ const UseCart = (token: any) => {
       try {
         if (!!token) {
           await axios.post(
-            "http://localhost:1337/api/carts",
+            "https://nirni-store.onrender.com/api/carts",
             {
               data: {
                 name,
@@ -190,17 +195,20 @@ const UseCart = (token: any) => {
     try {
       if (!!token) {
         if (!!token) {
-          await axios.put(`http://localhost:1337/api/carts/${cartItemId}`, {
-            data: {
-              colour,
-              size,
-              image,
-              quantity: Number(quantity),
-            },
-            headers: {
-              Authorization: `bearer ${token}`,
-            },
-          });
+          await axios.put(
+            `https://nirni-store.onrender.com/api/carts/${cartItemId}`,
+            {
+              data: {
+                colour,
+                size,
+                image,
+                quantity: Number(quantity),
+              },
+              headers: {
+                Authorization: `bearer ${token}`,
+              },
+            }
+          );
           setUpdateCart(true);
         } else {
           const updatedCart = cart.map((item: any, idx: any) => {
@@ -226,11 +234,14 @@ const UseCart = (token: any) => {
   const removeFromCart = async ({ index, productId, cartItemId }: any) => {
     try {
       if (!!token) {
-        await axios.delete(`http://localhost:1337/api/carts/${cartItemId}`, {
-          headers: {
-            Authorization: `bearer ${token}`,
-          },
-        });
+        await axios.delete(
+          `https://nirni-store.onrender.com/api/carts/${cartItemId}`,
+          {
+            headers: {
+              Authorization: `bearer ${token}`,
+            },
+          }
+        );
         setUpdateCart(true);
       } else {
         const cartAfterRemovedItem = cart.filter(

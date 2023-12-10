@@ -57,7 +57,7 @@ const Orders = ({ token, orders }: any) => {
                         <LazyLoadImage
                           className="card_media"
                           effect="blur"
-                          src={`http://localhost:1337${product.image}`}
+                          src={`${product.image}`}
                           alt={product.name}
                         />
                         <CardContent

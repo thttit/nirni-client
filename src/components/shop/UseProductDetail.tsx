@@ -73,7 +73,7 @@ export const UseProductDetail = () => {
         const {
           data: { data },
         } = await axios.get(
-          `http://localhost:1337/api/products/${productId}?populate=*`
+          `https://nirni-store.onrender.com/api/products/${productId}?populate=*`
         );
         setProduct(data);
       } catch (error) {

@@ -4,30 +4,14 @@ import "../Shop.scss";
 //component
 import { UseProducts } from "src/components/shop/UseProducts";
 import ProductCard from "src/components/shop/ProductCard";
+import { IProduct } from "./Tops";
 
-export type IProduct = {
-  id: number;
-  attributes: {
-    category: {
-      data: {
-        id: number;
-        name: string;
-        description: string;
-        price: number;
-        quantity: number;
-        size: string;
-        color: string;
-      };
-    };
-  };
-};
-
-const Tops = () => {
+const Bottoms = () => {
   const { products } = UseProducts();
 
-  let tops_id = 3;
+  let bottoms_id = 2;
   const filteredProducts = products.filter(
-    (product: IProduct) => product.attributes.category.data?.id === tops_id
+    (product: IProduct) => product.attributes.category.data?.id === bottoms_id
   );
   return (
     <>
@@ -38,7 +22,6 @@ const Tops = () => {
               onClick={() => window.open(`/product/${product.id}`)}
               className="link_product"
             >
-              {/* Assuming ProductCard is a component that takes product as a prop */}
               <ProductCard product={product} />
             </Box>
           </Grid>
@@ -48,4 +31,4 @@ const Tops = () => {
   );
 };
 
-export default Tops;
+export default Bottoms;

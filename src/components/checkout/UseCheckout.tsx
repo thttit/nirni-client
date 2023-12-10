@@ -26,7 +26,7 @@ const UseCheckout = (token: any) => {
       try {
         if (!!token) {
           await axios
-            .get(`http://localhost:1337/api/orders`, {
+            .get(`https://nirni-store.onrender.com/api/orders`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
@@ -63,7 +63,7 @@ const UseCheckout = (token: any) => {
     try {
       if (!!token) {
         const response = await axios.post(
-          "http://localhost:1337/api/orders",
+          "https://nirni-store.onrender.com/api/orders",
           {
             data: {
               firstname,

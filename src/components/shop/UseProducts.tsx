@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const UseProducts = () => {
@@ -9,7 +9,9 @@ export const UseProducts = () => {
     try {
       const {
         data: { data },
-      } = await axios.get(`http://localhost:1337/api/categories`);
+      } = await axios.get(
+        `https://nirni-store.onrender.com/api/categories?populate=*`
+      );
       setCategories(data);
     } catch (error) {
       console.log(error);
@@ -19,7 +21,9 @@ export const UseProducts = () => {
     try {
       const {
         data: { data },
-      } = await axios.get(`http://localhost:1337/api/products?populate=*`);
+      } = await axios.get(
+        `https://nirni-store.onrender.com/api/products?populate=*`
+      );
       setProducts(data);
     } catch (error) {
       console.log(error);

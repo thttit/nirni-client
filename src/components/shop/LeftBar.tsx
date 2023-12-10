@@ -10,22 +10,23 @@ import {
 } from "@mui/material";
 import Fade from "@mui/material/Fade";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { UseProducts } from "./UseProducts";
 
-const LeftBar = () => {
-  // const { sortProducts } = UseProducts();
+const sorts = ["best selling", "price: low to high", "price: high to low"];
+export const categories = [
+  { name: "all", link: "/shop" },
+  { name: "new in", link: "/shop" },
+  { name: "tops", link: "/collection/tops" },
+  { name: "bottoms", link: "/shop" },
+  { name: "dresses", link: "/shop" },
+  { name: "swimwear", link: "/shop" },
+];
+interface LeftBarProps {
+  onSelectCategory: (category: string) => void;
+}
+
+const LeftBar = ({ onSelectCategory }: any) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
-  const sorts = ["best selling", "price: low to high", "price: high to low"];
-  const categories = [
-    "all",
-    "new in",
-    "tops",
-    "bottoms",
-    "dresses",
-    "swimwear",
-  ];
   const [anchorElSort, setAnchorElSort] = React.useState<null | HTMLElement>(
     null
   );
@@ -43,7 +44,9 @@ const LeftBar = () => {
     setAnchorElSort(null);
     setAnchorElCategory(null);
   };
-
+  const handleCategoryClick = (category: string) => {
+    onSelectCategory(category);
+  };
   return (
     <Box className="left_bar_wrapper">
       {fullScreen ? (
@@ -113,14 +116,14 @@ const LeftBar = () => {
               }}
             >
               {categories.map((item: any) => (
-                <MenuItem key={item} onClick={handleClose}>
+                <MenuItem key={item.name} onClick={handleClose}>
                   <Link
                     underline="hover"
                     variant="body1"
                     color="inherit"
                     href="/shop"
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </MenuItem>
               ))}
@@ -164,14 +167,15 @@ const LeftBar = () => {
               sx={{ flexDirection: "column", gap: "2px" }}
             >
               {categories.map((temp: any) => (
-                <Box key={temp}>
+                <Box key={temp.name}>
                   <Link
                     underline="hover"
                     variant="body1"
                     color="inherit"
-                    href="/shop"
+                    href={temp.link}
+                    // onClick={() => handleCategoryClick(temp.name)}
                   >
-                    {temp}
+                    {temp.name}
                   </Link>
                 </Box>
               ))}

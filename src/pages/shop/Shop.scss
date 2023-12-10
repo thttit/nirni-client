@@ -6,7 +6,6 @@
 .row {
     width        : 100%;
     padding-top  : 24px;
-    margin-left  : 32px;
     margin-right : 32px;
     margin-bottom: 40px;
 
@@ -22,6 +21,11 @@
 //LeftBar
 .left_bar {
     margin-top: 16px;
+
+    .left_bar_wrapper {
+        position: sticky;
+        top     : 104px;
+    }
 }
 
 .right_bar {
@@ -71,6 +75,11 @@
 }
 
 @media(max-width: 600px) {
+    .row {
+        padding-top: 8px;
+        margin-left: 32px;
+    }
+
     .shop_mob .left_bar_wrapper {
         display        : flex;
         justify-content: space-around;

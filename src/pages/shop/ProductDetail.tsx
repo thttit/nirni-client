@@ -80,7 +80,7 @@ const ProductDetail = ({ addToCart }: any) => {
                             role="presentation"
                             alt=""
                             effect="blur"
-                            src={`http://localhost:1337${event.attributes.url}`}
+                            src={`${event.attributes.url}`}
                             className="mob_media"
                           />
                         </Box>
@@ -217,7 +217,7 @@ const ProductDetail = ({ addToCart }: any) => {
                               role="presentation"
                               alt=""
                               effect="blur"
-                              src={`http://localhost:1337${event.attributes.url}`}
+                              src={`${event.attributes.url}`}
                               className="desk_media"
                             />
                           </Box>
@@ -246,7 +246,6 @@ const ProductDetail = ({ addToCart }: any) => {
                         gutterBottom
                         fontWeight={600}
                         variant="subtitle1"
-                        pt={2}
                       >
                         Color: {attributes.colour}
                       </Typography>

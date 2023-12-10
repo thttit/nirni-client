@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link, Form, Outlet } from "react-router-dom";
+import { useNavigate, Link, Form } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
   FormControl,
@@ -9,11 +9,6 @@ import {
   OutlinedInput,
   InputAdornment,
   IconButton,
-  Grid,
-  Checkbox,
-  FormControlLabel,
-  ListItem,
-  List,
   useTheme,
   DialogTitle,
   DialogContentText,
@@ -24,6 +19,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { toast } from "react-toastify";
 //component
 import ButtonStyled from "../../buttonStyled";
 import GoogleLogin from "./GoogleLogin";
@@ -71,10 +67,16 @@ const Register = () => {
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const url = `http://localhost:1337/api/auth/local/register`;
+      const url = `https://nirni-store.onrender.com/api/auth/local/register`;
       if (signupData.username && signupData.email && signupData.password) {
         const res = await axios.post(url, signupData);
-        console.log("Signup successful:", res.data);
+        if (res) {
+          toast.success("Register successfully!", {
+            position: toast.POSITION.TOP_LEFT,
+            hideProgressBar: true,
+          });
+          navigate("/login");
+        }
       }
     } catch (error: any) {
       setOpenFailed(true);

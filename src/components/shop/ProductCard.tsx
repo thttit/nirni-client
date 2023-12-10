@@ -5,6 +5,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ProductCard = ({ product }: any) => {
   const image = product.attributes.images.data[0].attributes;
+
   return (
     <>
       <Card
@@ -19,11 +20,13 @@ const ProductCard = ({ product }: any) => {
         <LazyLoadImage
           className="card_media"
           effect="blur"
-          src={`http://localhost:1337${image.url}`}
+          src={`${image.url}`}
           alt={image.name}
         />
         <CardContent className="card_content" sx={{ flexGrow: 1 }}>
-          <Typography className="card_content title" variant="subtitle2">{product.attributes.name}</Typography>
+          <Typography className="card_content title" variant="subtitle2">
+            {product.attributes.name}
+          </Typography>
           <Typography className="card_content price" variant="subtitle2">
             ${product.attributes.price}.00
           </Typography>

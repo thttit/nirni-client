@@ -96,7 +96,7 @@ const Checkout = ({ addToOrder, cart, removeFromCart }: any) => {
 
   return (
     <Box
-      className="row"
+      className="checkout-row"
       mt={2}
       sx={{
         flexGrow: "0 1",

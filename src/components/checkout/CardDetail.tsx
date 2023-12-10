@@ -24,7 +24,7 @@ const CardDetail = ({ subPrice, totalPrice, cart }: any) => {
                   <Box className="media">
                     <LazyLoadImage
                       className="image"
-                      src={`http://localhost:1337${product.image}`}
+                      src={`${product.image}`}
                       alt={product.name}
                     />
                   </Box>
@@ -109,7 +109,7 @@ const CardDetail = ({ subPrice, totalPrice, cart }: any) => {
                 <Box className="media">
                   <LazyLoadImage
                     className="image"
-                    src={`http://localhost:1337${product.image}`}
+                    src={`${product.image}`}
                     alt={product.name}
                   />
                 </Box>

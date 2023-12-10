@@ -1,25 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "../navbar/Navbar.scss";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import {
-  Box,
-  Link,
-  Typography,
-  IconButton,
-  useTheme,
-  Dialog,
-  DialogContentText,
-  Menu,
-  MenuItem,
-  Tooltip,
-  Avatar,
-  Divider,
-  ListItemIcon,
-  Snackbar,
-  Alert,
-  Button,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import "./Auth.scss";
 //component
 export const ShopPage = () => {
@@ -45,21 +26,7 @@ export const ContactPage = () => {
 };
 export const Account = ({ isLoggedIn }: any) => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-  //useState
-  const [isVisible, setIsVisible] = useState(false);
-  const [isSignIn, setIsSignIn] = useState(false);
-  //Dropdown Menu Account
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+
   return (
     <>
       {isLoggedIn ? (

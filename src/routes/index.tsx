@@ -12,6 +12,7 @@ import UseCheckout from "src/components/checkout/UseCheckout";
 import Protector from "../components/navbar/auth/User";
 import LoginRedirect from "src/components/navbar/auth/LoginRedirect";
 import Tops from "src/pages/shop/categories/Tops";
+import LeftBar from "src/components/shop/LeftBar";
 
 const Home = lazy(() => import("../pages/home/Home"));
 const Shop = lazy(() => import("../pages/shop/Shop"));
@@ -84,15 +85,16 @@ const Temp = () => {
             </Suspense>
           ),
         },
-        // {
-        //   path: "collection/tops",
-        //   element: (
-        //     <Suspense fallback={<Skeleton variant="rectangular" />}>
-        //       <Tops />
-        //       <Footer />
-        //     </Suspense>
-        //   ),
-        // },
+        {
+          path: "collection/tops",
+          element: (
+            <Suspense fallback={<Skeleton variant="rectangular" />}>
+              {/* <LeftBar /> */}
+              <Tops />
+              <Footer />
+            </Suspense>
+          ),
+        },
         {
           path: "product/:id",
           element: (

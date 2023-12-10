@@ -19,7 +19,7 @@ const UseOrder = (token: any) => {
         const {
           data: { data },
         } = await axios.get(
-          `http://localhost:1337/api/orders/${code}?populate=*`,
+          `https://nirni-store.onrender.com/api/orders/${code}?populate=*`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -21,6 +21,7 @@ const CustomCart = ({
   const quantitiesArray = Array.from(Array(Number(quantities || 0)).keys());
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <React.Fragment>
       {fullScreen ? (
@@ -30,7 +31,7 @@ const CustomCart = ({
               role="presentation"
               alt={name}
               effect="blur"
-              src={`http://localhost:1337${image}`}
+              src={`${image}`}
               className="image-wrapper media"
             />
             <Box ml={2} maxWidth={"64px"}>
@@ -117,7 +118,7 @@ const CustomCart = ({
               role="presentation"
               alt={name}
               effect="blur"
-              src={`http://localhost:1337${image}`}
+              src={`${image}`}
               className="image-wrapper media"
             />
             <Box ml={2}>

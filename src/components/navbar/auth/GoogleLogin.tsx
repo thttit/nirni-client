@@ -6,7 +6,10 @@ import { Box, Button } from "@mui/material";
 function GoogleLogin({ token }: any) {
   return (
     <>
-      <Link to={`http://localhost:1337/api/connect/google`} className="link">
+      <Link
+        to={`https://nirni-store.onrender.com/api/connect/google`}
+        className="link"
+      >
         <Box
           className="login_social"
           sx={{
